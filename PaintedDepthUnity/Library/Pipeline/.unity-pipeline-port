@@ -1,0 +1,16 @@
+{
+  "pid": 56510,
+  "port": 7800,
+  "projectPath": "/Users/michaelli/Documents/GameProjects/PaintedDepthUnity",
+  "projectName": "PaintedDepthUnity",
+  "unityVersion": "6000.3.6f1",
+  "mode": "editor",
+  "startedAt": "2026-11-21T10:29:15.381664Z",
+  "lastHeartbeat": "2026-11-21T10:29:15.381665Z",
+  "evalToken": "/Rxc7l/emWMdBZpDFK6FrzrBFnqo+lKdma4naA37lRc=",
+  "info": "This editor has not been opened in automated mode and therefore could get stuck on modal dialogs. Human intervention may be required.",
+  "capabilities": [
+    "exec.argv",
+    "exec.commandLine"
+  ]
+}

@@ -1,0 +1,7 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/michaelli/Documents/GameProjects/PaintedDepthUnity/Temp/Burst/burst-aotrkxikep4.y1l/ad1ef3c1f26345fa51dc720ccbe813fd.bundle'
+relocations:
+  - { offset: 0x1E, size: 0x8, addend: 0x0, symName: '_Unity.InferenceEngine.CPUBackend.ConvJob.CanUseDepthwiseConvKernel(Unity.InferenceEngine.CPUBackend.ConvJob* job) -> bool_01c68c9e6d73700e0e0813a158035341 from Unity.InferenceEngine, Version=2.6.1.0, Culture=neutral, PublicKeyToken=null', symObjAddr: 0x54, symBinAddr: 0x49C, symSize: 0xA0 }
+  - { offset: 0x37, size: 0x8, addend: 0x0, symName: '_Unity.InferenceEngine.CPUBackend.ConvJob.CanUseDepthwiseConvKernel(Unity.InferenceEngine.CPUBackend.ConvJob* job) -> bool_01c68c9e6d73700e0e0813a158035341 from Unity.InferenceEngine, Version=2.6.1.0, Culture=neutral, PublicKeyToken=null', symObjAddr: 0x54, symBinAddr: 0x49C, symSize: 0xA0 }
+...

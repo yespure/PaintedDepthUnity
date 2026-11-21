@@ -1,0 +1,173 @@
+{
+  "1": {
+    "inputs": {
+      "ckpt_name": "v1-5-pruned-emaonly.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Checkpoint加载器（简易）"
+    }
+  },
+  "2": {
+    "inputs": {
+      "text": "isometric cutaway view of an unoccupied furnished study,\ngreen painted walls, yellow curtains, reddish patterned rug,\nwarm brown wooden furniture and wooden floor,\nwooden bookshelves, a desk and chairs,\nstraight architectural lines, clearly defined furniture,\n\nhand-painted narrative game environment,\nRussian realist oil painting, Peredvizhniki-inspired,\nrestrained impressionistic brushwork,\nvisible bristle brush marks, broken color,\nrough painted surfaces, simplified painterly details,\nmuted earthy palette, ochre, umber, moss green,\nwarm diffuse highlights and cool blue-gray shadows,\nsoft ambient daylight, subtle tonal variation,\nmelancholic lived-in atmosphere\n\na hand-painted isometric interior scene, cohesive limited color palette,\nmuted teal, warm ochre, burnt umber and dusty reds,\nunified color harmony across the whole scene,\nvisible broad painterly brushstrokes, broken brushwork,\nlayered oil paint texture, expressive imperfect edges,\nsubtle color bleeding beyond a few object boundaries,\nsimplified color masses, carefully preserved room layout and furniture,\nmoody diffuse light, atmospheric shadows,\npainterly environment concept art",
+      "clip": [
+        "1",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "DiscoStylePipeline"
+    }
+  },
+  "5": {
+    "inputs": {
+      "text": "people, human figure, portrait,\nwarped architecture, curved walls, melted furniture,\nextra windows, extra doors, floating objects,\nphotorealistic, glossy plastic, polished 3d render,\ncartoon, anime, neon colors, oversaturated,\nharsh cast shadows, dramatic spotlight,\ntext, watermark\n\nphotorealistic, 3d render, glossy surfaces, plastic,\noversharp outlines, perfectly clean vector edges,\ntoo many tiny details, noisy texture, oversaturated colors,\npatchy unrelated colors, muddy colors, melted furniture,\nwarped room, duplicated objects, text, watermark",
+      "clip": [
+        "1",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码"
+    }
+  },
+  "6": {
+    "inputs": {
+      "image": "Color (3).png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "加载图像"
+    }
+  },
+  "8": {
+    "inputs": {
+      "strength": 1,
+      "start_percent": 0,
+      "end_percent": 1,
+      "positive": [
+        "2",
+        0
+      ],
+      "negative": [
+        "5",
+        0
+      ],
+      "control_net": [
+        "9",
+        0
+      ],
+      "vae": [
+        "1",
+        2
+      ],
+      "image": [
+        "16",
+        0
+      ]
+    },
+    "class_type": "ControlNetApplySD3",
+    "_meta": {
+      "title": "应用ControlNet"
+    }
+  },
+  "9": {
+    "inputs": {
+      "control_net_name": "control_v11p_sd15_lineart_fp16.safetensors"
+    },
+    "class_type": "ControlNetLoader",
+    "_meta": {
+      "title": "加载ControlNet模型"
+    }
+  },
+  "10": {
+    "inputs": {
+      "pixels": [
+        "6",
+        0
+      ],
+      "vae": [
+        "1",
+        2
+      ]
+    },
+    "class_type": "VAEEncode",
+    "_meta": {
+      "title": "VAE编码"
+    }
+  },
+  "13": {
+    "inputs": {
+      "seed": 0,
+      "steps": 20,
+      "cfg": 8,
+      "sampler_name": "euler",
+      "scheduler": "normal",
+      "denoise": 0.5,
+      "model": [
+        "1",
+        0
+      ],
+      "positive": [
+        "8",
+        0
+      ],
+      "negative": [
+        "8",
+        1
+      ],
+      "latent_image": [
+        "10",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "K采样器"
+    }
+  },
+  "14": {
+    "inputs": {
+      "samples": [
+        "13",
+        0
+      ],
+      "vae": [
+        "1",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "15": {
+    "inputs": {
+      "filename_prefix": "PaintedColor",
+      "format": "png",
+      "format.bit_depth": "8-bit",
+      "format.input_color_space": "sRGB",
+      "images": [
+        "14",
+        0
+      ]
+    },
+    "class_type": "SaveImageAdvanced",
+    "_meta": {
+      "title": "保存图像（高级）"
+    }
+  },
+  "16": {
+    "inputs": {
+      "image": "NormalEdge (3).png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "加载图像"
+    }
+  }
+}
